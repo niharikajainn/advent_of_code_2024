@@ -38,7 +38,7 @@ def part_one():
 		for child in adjacents:
 			if(continues_word(letter(child[0], child[1]),letter(node_row, node_col))):
 				frontier.put(child)
-	print(count_xmas)
+	print("There are", count_xmas, "XMASes in the word search.")
 
 def part_two():
 	count_x_mas = 0
@@ -54,7 +54,7 @@ def part_two():
 					right_diagonal_mas = True
 				if(right_diagonal_mas and left_diagonal_mas):
 					count_x_mas += 1
-	print(count_x_mas)
+	print("There are", count_x_mas, "X-MASes in the word search.")
 
 def children(row,col,direction):
 		if direction == Direction.UP_LEFT.name and row > 0 and col > 0:
