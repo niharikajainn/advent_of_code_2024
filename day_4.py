@@ -32,12 +32,13 @@ def part_one():
 	while(not frontier.empty()):
 		node = frontier.get()
 		node_row, node_col, search_direction = node
-		if(letter(node_row,node_col) == 'S'):
-			count_xmas += 1
 		adjacents = children(*node)
 		for child in adjacents:
 			if(continues_word(letter(child[0], child[1]),letter(node_row, node_col))):
-				frontier.put(child)
+				if(letter(child[0], child[1]) == 'S'):
+					count_xmas += 1
+				else:
+					frontier.put(child)
 	print("There are", count_xmas, "XMASes in the word search.")
 
 def part_two():
