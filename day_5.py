@@ -15,13 +15,12 @@ def correctness_check_and_correct(rules_dict, updates):
 		copy_of_update = update.copy()
 		incorrect = False
 		for rule_key in sorted_rule_keys:
-			if rule_key in update:
-				for comes_after in rules_dict[rule_key]:
-					if comes_after in update:
-						if update.index(comes_after) < update.index(rule_key):
-							incorrect = True
-							del update[update.index(rule_key)]
-							update.insert(update.index(comes_after),rule_key)
+			for comes_after in rules_dict[rule_key]:
+				if (rule_key in update and comes_after in update 
+					and update.index(comes_after) < update.index(rule_key)):
+					incorrect = True
+					del update[update.index(rule_key)]
+					update.insert(update.index(comes_after),rule_key)
 		if incorrect:
 			corrected_updates.append(update)
 		else:
