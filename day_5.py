@@ -7,12 +7,11 @@ def main():
 	part_one(correct_updates)
 	part_two(corrected_updates)
 
-def correctness_check_and_correct(rules_dict, updates):
+def check_and_correct(rules_dict, updates):
 	correct_updates = []
 	corrected_updates = []
 	sorted_rule_keys = sorted(rules_dict, key=lambda key: len(rules_dict[key]), reverse=True)
 	for update in updates:
-		copy_of_update = update.copy()
 		incorrect = False
 		for rule_key in sorted_rule_keys:
 			for comes_after in rules_dict[rule_key]:
