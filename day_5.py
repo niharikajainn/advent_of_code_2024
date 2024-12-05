@@ -3,7 +3,7 @@ import csv
 def main():	
 	rules_dict = parse_rules()
 	all_updates = parse_updates()
-	correct_updates, corrected_updates = correctness_check_and_correct(rules_dict, all_updates)
+	correct_updates, corrected_updates = check_and_correct(rules_dict, all_updates)
 	part_one(correct_updates)
 	part_two(corrected_updates)
 
